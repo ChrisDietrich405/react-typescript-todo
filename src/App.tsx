@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import InputField from "./components/InputField";
+import TodoList from "./components/TodoList";
 import { ITodo } from "./model";
-//37
+//54
 const App: React.FC = () => {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState<ITodo[]>([]);
@@ -20,10 +21,9 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading">Taskify</span>
       <InputField handleAddTodo={handleAddTodo} todo={todo} setTodo={setTodo} />
-
-      {todos.map((todo) => {
-        return <h1>{todo.task}</h1>;
-      })}
+      <TodoList setTodos={setTodos} todos={todos}/>
+      
+      
     </div>
   );
 };
