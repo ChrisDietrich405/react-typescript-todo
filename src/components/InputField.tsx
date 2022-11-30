@@ -1,22 +1,23 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import "./styles.css";
 
 interface InputFieldProps {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
-  handleAddTodo: (e: React.FormEvent) => void
+  handleAddTodo: (e: React.FormEvent) => void;
 }
 
 const InputField = ({ todo, setTodo, handleAddTodo }: InputFieldProps) => {
-  
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  
   return (
-    <form onSubmit={(e) => {
-      handleAddTodo(e)
-      inputRef.current?.blur()
-      }} className="input">
+    <form
+      onSubmit={(e) => {
+        handleAddTodo(e);
+        inputRef.current?.blur();
+      }}
+      className="input"
+    >
       <input
         ref={inputRef}
         value={todo}
@@ -25,8 +26,8 @@ const InputField = ({ todo, setTodo, handleAddTodo }: InputFieldProps) => {
         placeholder="enter task"
         className="input__box"
       />
-      <button className="input_submit" type="submit">
-        add task
+      <button type="submit" className="input_submit">
+        Go
       </button>
     </form>
   );
